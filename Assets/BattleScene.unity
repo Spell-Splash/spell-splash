@@ -2309,7 +2309,7 @@ GameObject:
   - component: {fileID: 575723521}
   - component: {fileID: 575723520}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: RightPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2386,7 +2386,7 @@ GameObject:
   - component: {fileID: 605154117}
   - component: {fileID: 605154116}
   m_Layer: 5
-  m_Name: Panel (1)
+  m_Name: MeaningBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3619,7 +3619,7 @@ GameObject:
   - component: {fileID: 909782199}
   - component: {fileID: 909782198}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: ItemsBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3940,7 +3940,7 @@ GameObject:
   - component: {fileID: 941018557}
   - component: {fileID: 941018556}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: AlphabetsBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4598,7 +4598,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5627987c513ab40149f7d0c1f1844485, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fc1fec03a4cdf49399a18e88dde0f552, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5386,7 +5386,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 11b9ab1beb26942f688839cfdb25ca56, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17e5394f48b9b46e4a3aa87cf47ee404, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6181,7 +6181,7 @@ GameObject:
   - component: {fileID: 1314622951}
   - component: {fileID: 1314622950}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: AnimationPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8335,7 +8335,7 @@ GameObject:
   - component: {fileID: 1561243409}
   - component: {fileID: 1561243408}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: PronunciationBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10379,7 +10379,7 @@ GameObject:
   - component: {fileID: 1921663944}
   - component: {fileID: 1921663943}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: BottomPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
