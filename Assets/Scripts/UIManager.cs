@@ -1,32 +1,145 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;  // Required for TMP_Text
-using UnityEngine.UI; // Required for Button
+using UnityEngine.UI;
+using UnityEngine.Networking;
+using TMPro;
 
-public class NewBehaviourScript : MonoBehaviour
+[System.Serializable]
+public class QuizResponse
 {
-    private int clickCount = 0;
+    public string correct;
+    public string[] choices;
+    public string audio_file;
+}
+
+public class UIManager : MonoBehaviour
+{
+    public GameObject[] choiceButtons;
+    public TMP_Text feedbackText;
+    public Button restartButton;
+    public Button replayButton;
+    public AudioSource audioSource;
+
+    private string correctAnswer;
+    private GameState currentState;
+
+    enum GameState
+    {
+        Start,
+        Select,
+        Decision,
+        Result
+    }
 
     void Start()
     {
-        Debug.Log("Script started!");
+        restartButton.onClick.AddListener(RestartGame);
+        replayButton.onClick.AddListener(OnReplayAudio);
+        SetState(GameState.Start);
     }
 
-    // Call this from each button and pass its GameObject as parameter
-    public void OnChoiceButtonClick(GameObject buttonObject)
+    void SetState(GameState newState)
     {
-        clickCount++;
+        currentState = newState;
 
-        // Get TMP_Text from the child of the button (assumes it's the first TMP_Text)
-        TMP_Text textComponent = buttonObject.GetComponentInChildren<TMP_Text>();
-        if (textComponent != null)
+        switch (newState)
         {
-            Debug.Log($"Button {clickCount} clicked with text: {textComponent.text}");
+            case GameState.Start:
+                feedbackText.text = "";
+                restartButton.gameObject.SetActive(false);
+                StartCoroutine(LoadQuestionFromServer());
+                break;
+
+            case GameState.Select:
+                // Wait for user input
+                break;
+
+            case GameState.Decision:
+                // Handled in OnChoiceClicked
+                break;
+
+            case GameState.Result:
+                restartButton.gameObject.SetActive(true);
+                break;
+        }
+    }
+
+    IEnumerator LoadQuestionFromServer()
+    {
+        UnityWebRequest request = UnityWebRequest.Get("http://127.0.0.1:8000/generate");
+        yield return request.SendWebRequest();
+
+        if (request.result != UnityWebRequest.Result.Success)
+        {
+            feedbackText.text = "Failed to load question.";
+            Debug.LogError(request.error);
+            yield break;
+        }
+
+        QuizResponse data = JsonUtility.FromJson<QuizResponse>(request.downloadHandler.text);
+        correctAnswer = data.correct;
+
+        // Set answer texts
+        for (int i = 0; i < choiceButtons.Length; i++)
+        {
+            TMP_Text btnText = choiceButtons[i].GetComponentInChildren<TMP_Text>();
+            btnText.text = data.choices[i];
+
+            int capturedIndex = i;
+            choiceButtons[i].GetComponent<Button>().onClick.RemoveAllListeners();
+            choiceButtons[i].GetComponent<Button>().onClick.AddListener(() => OnChoiceClicked(capturedIndex));
+        }
+
+        // Download and play audio
+        StartCoroutine(DownloadAudio(data.audio_file));
+
+        SetState(GameState.Select);
+    }
+
+    IEnumerator DownloadAudio(string filename)
+    {
+        string audioUrl = $"http://127.0.0.1:8000/audio/{filename}";
+        UnityWebRequest request = UnityWebRequestMultimedia.GetAudioClip(audioUrl, AudioType.WAV);
+        yield return request.SendWebRequest();
+
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            audioSource.clip = DownloadHandlerAudioClip.GetContent(request);
+            audioSource.Play();
         }
         else
         {
-            Debug.LogWarning("TMP_Text component not found on button!");
+            Debug.LogError("Failed to download audio: " + request.error);
         }
+    }
+
+    public void OnChoiceClicked(int index)
+    {
+        SetState(GameState.Decision);
+
+        string chosenText = choiceButtons[index].GetComponentInChildren<TMP_Text>().text;
+
+        if (chosenText == correctAnswer)
+        {
+            feedbackText.text = "Correct! Well done!";
+        }
+        else
+        {
+            feedbackText.text = "Incorrect! So sad...";
+        }
+
+        SetState(GameState.Result);
+    }
+
+    void RestartGame()
+    {
+        SetState(GameState.Start);
+    }
+
+    public void OnReplayAudio()
+    {
+        if (audioSource.clip != null)
+            audioSource.Play();
     }
 }
