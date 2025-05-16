@@ -15,7 +15,7 @@ public class MainMenuUIManager : MonoBehaviour
     // Called when Settings button is clicked
     public void OnSettingsButtonClicked()
     {
-        SceneManager.LoadScene("Settings");
+        SceneManager.LoadScene("Setting");
     }
 
     // Called when Quit button is clicked
