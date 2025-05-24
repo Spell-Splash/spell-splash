@@ -9,7 +9,7 @@ public class MainMenuUIManager : MonoBehaviour
     public void OnPlayButtonClicked()
     {
         // #TODO: Implement logic to load last visited scene instead of hardcoding
-        SceneManager.LoadScene("MapScene");
+        SceneManager.LoadScene("Map");
     }
 
     // Called when Settings button is clicked
