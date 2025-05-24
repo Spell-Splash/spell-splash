@@ -16,7 +16,7 @@ public class SceneDoor : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            DontDestroyOnLoad(other.gameObject); // Keep player across scenes
+            // DontDestroyOnLoad(other.gameObject); // Keep player across scenes
             StartCoroutine(TransitionToScene(other.gameObject));
         }
     }
