@@ -16,6 +16,8 @@ public class SceneDoor : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            // TODO: Add guild map here if needed.
+            // Optionally keep the player object across scenes
             // DontDestroyOnLoad(other.gameObject); // Keep player across scenes
             StartCoroutine(TransitionToScene(other.gameObject));
         }
