@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 
 public class WordBuilder : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class WordBuilder : MonoBehaviour
     [Header("UI References")]
     public Transform wordPanel; // The gray box (with HorizontalLayoutGroup)
     public GameObject letterBoxPrefab;
+    public Button attackButton;
 
     // Track added letters & original AlphabetButtons
     private List<GameObject> currentLetters = new List<GameObject>();
@@ -18,6 +21,11 @@ public class WordBuilder : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+    }
+
+    void Start()
+    {
+        attackButton.interactable = false;
     }
 
     public void TryAddLetterFromButton(AlphabetButton button)
@@ -30,32 +38,43 @@ public class WordBuilder : MonoBehaviour
 
             currentLetters.Add(letterObj);
             usedButtons.Add(button);
+
+            attackButton.interactable = true;
         }
     }
 
-    public void DeleteLastLetter()
+    public void ClearAll(bool refundLetters = true)
+    {
+        while (currentLetters.Count > 0)
+        {
+            DeleteLastLetter(refundLetters);
+        }
+    }
+
+    public void DeleteLastLetter(bool refund = true)
     {
         if (currentLetters.Count == 0)
             return;
 
-        // Remove from UI
-        GameObject lastLetter = currentLetters[currentLetters.Count - 1];
+        GameObject lastLetter = currentLetters[^1];
         Destroy(lastLetter);
         currentLetters.RemoveAt(currentLetters.Count - 1);
 
-        // Restore amount to source alphabet button
-        AlphabetButton lastUsed = usedButtons[usedButtons.Count - 1];
-        lastUsed.SetAmount(lastUsed.amount + 1);
-        usedButtons.RemoveAt(usedButtons.Count - 1);
-    }
+        AlphabetButton lastUsed = usedButtons[^1];
 
-    public void ClearAll()
-    {
-        while (currentLetters.Count > 0)
+        if (refund)
         {
-            DeleteLastLetter();
+            lastUsed.SetAmount(lastUsed.amount + 1);
+        }
+
+        usedButtons.RemoveAt(usedButtons.Count - 1);
+
+        if (currentLetters.Count == 0)
+        {
+            attackButton.interactable = false;
         }
     }
+
 
     public string GetBuiltWord()
     {
@@ -66,4 +85,18 @@ public class WordBuilder : MonoBehaviour
         }
         return word;
     }
+
+    public void OnAttackPressed()
+    {
+        string word = GetBuiltWord();
+
+        Debug.Log("Player attacks with: " + word);
+
+        // TODO: Add actual battle logic here
+        // For now: just clear without refunding letters
+        ClearAll(refundLetters: false);
+
+        attackButton.interactable = false;
+    }
+
 }
