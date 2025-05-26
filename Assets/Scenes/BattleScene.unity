@@ -6377,6 +6377,7 @@ GameObject:
   - component: {fileID: 941018555}
   - component: {fileID: 941018557}
   - component: {fileID: 941018556}
+  - component: {fileID: 941018558}
   m_Layer: 5
   m_Name: AlphabetsBoard
   m_TagString: Untagged
@@ -6469,6 +6470,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941018554}
   m_CullTransparentMesh: 1
+--- !u!114 &941018558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941018554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7d67b10e755468a95ae6968eefa3cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allAlphabetButtons:
+  - {fileID: 1580302545}
+  - {fileID: 698118972}
+  - {fileID: 480707645}
+  - {fileID: 841233430}
+  - {fileID: 1592761255}
+  - {fileID: 1320847209}
+  - {fileID: 241564948}
+  - {fileID: 1749285690}
+  - {fileID: 1279747686}
+  - {fileID: 1067978340}
+  - {fileID: 1430182420}
+  - {fileID: 685931146}
+  - {fileID: 73588797}
+  - {fileID: 1951422940}
+  - {fileID: 1770196118}
+  - {fileID: 1296903413}
+  - {fileID: 700753762}
+  - {fileID: 1008699158}
+  - {fileID: 1354576932}
+  - {fileID: 58624427}
+  - {fileID: 1639721910}
+  - {fileID: 1410350920}
+  - {fileID: 1709471775}
+  - {fileID: 1553967322}
+  - {fileID: 259978721}
+  - {fileID: 2036626635}
+  totalLettersToDistribute: 30
 --- !u!1 &944963416
 GameObject:
   m_ObjectHideFlags: 0
@@ -12675,7 +12716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   letter: A
-  amount: 4
+  amount: 0
   amountText: {fileID: 2011110299}
 --- !u!1 &1581030789
 GameObject:
