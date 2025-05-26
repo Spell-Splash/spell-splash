@@ -24,4 +24,9 @@ public class AlphabetButton : MonoBehaviour
         }
         return false;
     }
+
+    public void OnClick()
+    {
+        WordBuilder.Instance.TryAddLetterFromButton(this);
+    }
 }
