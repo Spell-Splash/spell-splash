@@ -12,14 +12,15 @@ public class AlphabetButton : MonoBehaviour
     {
         amount = newAmount;
         amountText.text = amount.ToString();
+
+        GetComponent<Button>().interactable = (amount > 0);
     }
 
     public bool TryUseLetter()
     {
         if (amount > 0)
         {
-            amount--;
-            amountText.text = amount.ToString();
+            SetAmount(amount - 1);
             return true;
         }
         return false;
