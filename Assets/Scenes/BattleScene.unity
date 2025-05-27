@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 17952241}
   - component: {fileID: 17952240}
   m_Layer: 5
-  m_Name: A
+  m_Name: Meaning 3 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1239,7 +1239,7 @@ GameObject:
   - component: {fileID: 192627954}
   - component: {fileID: 192627953}
   m_Layer: 5
-  m_Name: Panel (2)
+  m_Name: PronunAction 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2037,7 +2037,7 @@ GameObject:
   - component: {fileID: 305755173}
   - component: {fileID: 305755172}
   m_Layer: 5
-  m_Name: A Button (8)
+  m_Name: PronunAction 2 Spell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2158,7 +2158,7 @@ GameObject:
   - component: {fileID: 355410012}
   - component: {fileID: 355410011}
   m_Layer: 5
-  m_Name: A Button (09)
+  m_Name: Meaning 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2591,7 +2591,7 @@ GameObject:
   - component: {fileID: 417791461}
   - component: {fileID: 417791460}
   m_Layer: 5
-  m_Name: A
+  m_Name: PronunAction 3 SpellText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2725,7 +2725,7 @@ GameObject:
   - component: {fileID: 459264402}
   - component: {fileID: 459264401}
   m_Layer: 5
-  m_Name: A
+  m_Name: Meaning 1 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2859,7 +2859,7 @@ GameObject:
   - component: {fileID: 469128408}
   - component: {fileID: 469128407}
   m_Layer: 5
-  m_Name: A
+  m_Name: PronunAction 1 SpellText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3800,7 +3800,7 @@ GameObject:
   - component: {fileID: 528892012}
   - component: {fileID: 528892011}
   m_Layer: 5
-  m_Name: Panel (1)
+  m_Name: PronunAction 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4301,7 +4301,7 @@ GameObject:
   - component: {fileID: 610115986}
   - component: {fileID: 610115985}
   m_Layer: 5
-  m_Name: A
+  m_Name: PronunAction 2 SpellText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7566,7 +7566,7 @@ GameObject:
   - component: {fileID: 1046624100}
   - component: {fileID: 1046624099}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ClueWord
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8061,7 +8061,7 @@ GameObject:
   - component: {fileID: 1098315795}
   - component: {fileID: 1098315794}
   m_Layer: 5
-  m_Name: A Button (10)
+  m_Name: Meaning 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9678,7 +9678,7 @@ GameObject:
   - component: {fileID: 1233160864}
   - component: {fileID: 1233160863}
   m_Layer: 5
-  m_Name: A
+  m_Name: Meaning 2 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9888,7 +9888,7 @@ GameObject:
   - component: {fileID: 1242642543}
   - component: {fileID: 1242642542}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ItemsBoardTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10157,7 +10157,7 @@ GameObject:
   - component: {fileID: 1259318184}
   - component: {fileID: 1259318183}
   m_Layer: 5
-  m_Name: A Button (8)
+  m_Name: PronunAction 3 Spell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10979,7 +10979,7 @@ GameObject:
   - component: {fileID: 1309354366}
   - component: {fileID: 1309354365}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: PronunAction 2 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11985,7 +11985,7 @@ GameObject:
   - component: {fileID: 1361256269}
   - component: {fileID: 1361256268}
   m_Layer: 5
-  m_Name: A Button (8)
+  m_Name: PronunAction 1 Spell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14017,7 +14017,7 @@ GameObject:
   - component: {fileID: 1581030792}
   - component: {fileID: 1581030791}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: PronunAction 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15080,7 +15080,7 @@ GameObject:
   - component: {fileID: 1713850674}
   - component: {fileID: 1713850673}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: PronunAction 3 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16184,7 +16184,7 @@ GameObject:
   - component: {fileID: 1839139983}
   - component: {fileID: 1839139982}
   m_Layer: 5
-  m_Name: A Button (8)
+  m_Name: Meaning 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16514,7 +16514,7 @@ GameObject:
   - component: {fileID: 1930154921}
   - component: {fileID: 1930154920}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: PronunAction 1 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16769,7 +16769,7 @@ GameObject:
   - component: {fileID: 1938285322}
   - component: {fileID: 1938285321}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: PronunciationBoardTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
