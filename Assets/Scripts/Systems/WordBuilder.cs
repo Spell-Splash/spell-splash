@@ -88,14 +88,7 @@ public class WordBuilder : MonoBehaviour
 
     public void OnAttackPressed()
     {
-        string word = GetBuiltWord();
-
-        Debug.Log("Player attacks with: " + word);
-
-        // TODO: Add actual battle logic here
-        // For now: just clear without refunding letters
         ClearAll(refundLetters: false);
-
         attackButton.interactable = false;
     }
 

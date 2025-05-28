@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BattleSummaryScene.unity
     guid: a2402de3c4bda488c9040b256f192727
+  - enabled: 1
+    path: Assets/Scenes/CursedScene.unity
+    guid: 48e1aca4281de4ac29edc20077186158
   m_configObjects: {}
