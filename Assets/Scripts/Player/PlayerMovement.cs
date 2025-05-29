@@ -22,15 +22,15 @@ public class PlayerMovement : MonoBehaviour
 
         // Normalize to prevent faster diagonal movement
         movement = movement.normalized;
-
-        if (movement.x != 0)
-        {
-            GetComponent<SpriteRenderer>().flipX = movement.x < 0;
-        }
     }
 
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+
+        if (movement.x != 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = movement.x < 0;
+        }
     }
 }
