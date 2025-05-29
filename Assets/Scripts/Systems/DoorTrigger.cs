@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class SceneDoor : MonoBehaviour
+public class DoorTrigger : MonoBehaviour
 {
     [Header("Scene Settings")]
     public string targetSceneName;
@@ -14,17 +14,28 @@ public class SceneDoor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player")) return;
+
+        if (SceneTransferManager.Instance.IsReturningFromGuild)
         {
-            // TODO: Add guild map here if needed.
-            // Optionally keep the player object across scenes
-            // DontDestroyOnLoad(other.gameObject); // Keep player across scenes
-            StartCoroutine(TransitionToScene(other.gameObject));
+            SceneTransferManager.Instance.ClearReturnFlag();
+            return;
         }
+
+        SceneTransferManager.Instance.SaveReturnPoint(
+            other.transform.position,
+            SceneManager.GetActiveScene().name,
+            Camera.main.transform.position
+        );
+
+        StartCoroutine(TransitionToScene(other.gameObject));
     }
 
     IEnumerator TransitionToScene(GameObject player)
     {
+        player.GetComponent<PlayerMovement>()?.SetMovementEnabled(false);
+        Debug.Log($"Transitioning to scene: {targetSceneName}");
+
         // Fade out
         if (fadeCanvas) yield return StartCoroutine(Fade(1));
 
@@ -33,16 +44,31 @@ public class SceneDoor : MonoBehaviour
         while (!asyncLoad.isDone)
             yield return null;
 
-        // Wait a frame to allow scene to initialize
         yield return null;
 
-        // Find spawn point in new scene
+        // Move player to spawn point
         GameObject spawn = GameObject.FindWithTag(spawnPointTag);
         if (spawn)
             player.transform.position = spawn.transform.position;
 
+        // Handle camera restoration
+        CameraFollow camFollow = Camera.main.GetComponent<CameraFollow>();
+        if (camFollow != null)
+        {
+            camFollow.SetFollowEnabled(false); // Disable temporarily
+            camFollow.ForcePosition(SceneTransferManager.Instance.returnCameraPosition);
+        }
+
+        // Delay enabling follow to next frame
+        yield return null;
+
+        if (camFollow != null)
+            camFollow.SetFollowEnabled(true);
+
         // Fade in
         if (fadeCanvas) yield return StartCoroutine(Fade(0));
+
+        SceneTransferManager.Instance.ClearReturnFlag();
     }
 
     IEnumerator Fade(float targetAlpha)
