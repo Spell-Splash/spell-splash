@@ -250,6 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  mapObject: {fileID: 1615029228}
 --- !u!61 &1167334178
 BoxCollider2D:
   m_ObjectHideFlags: 0
