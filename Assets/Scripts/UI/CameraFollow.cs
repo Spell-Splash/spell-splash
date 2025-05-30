@@ -31,6 +31,12 @@ public class CameraFollow : MonoBehaviour
         if (player == null && PlayerMovement.Instance != null)
             player = PlayerMovement.Instance.transform;
 
+        if (SceneTransferManager.Instance != null && SceneTransferManager.Instance.IsReturningFromGuild)
+        {
+            transform.position = SceneTransferManager.Instance.returnCameraPosition;
+            SceneTransferManager.Instance.ClearReturnFlag();
+        }
+
         // Set camera bounds
         GameObject map = GameObject.Find("Quaint Village in Pixel Art");
         if (map != null)

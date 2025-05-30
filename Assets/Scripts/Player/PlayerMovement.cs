@@ -36,11 +36,16 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
     }
 
     void Start()
     {
+        if (SceneTransferManager.Instance != null && SceneTransferManager.Instance.IsReturningFromGuild)
+        {
+            transform.position = SceneTransferManager.Instance.returnPosition;
+        }
+
         InitializeBounds();
     }
 

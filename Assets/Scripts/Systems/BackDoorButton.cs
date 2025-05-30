@@ -12,9 +12,6 @@ public class BackDoorButton : MonoBehaviour
     public void OnBackButtonPressed()
     {
         StartCoroutine(ReturnToPreviousScene());
-
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        player.GetComponent<PlayerMovement>()?.SetMovementEnabled(true);
     }
 
     IEnumerator ReturnToPreviousScene()
@@ -31,13 +28,6 @@ public class BackDoorButton : MonoBehaviour
 
         // Wait a frame
         yield return null;
-
-        // Move the player to saved position
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
-        {
-            player.transform.position = returnPos;
-        }
 
         // Fade in
         if (fadeCanvas) yield return StartCoroutine(Fade(0));

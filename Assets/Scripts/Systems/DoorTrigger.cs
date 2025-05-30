@@ -11,10 +11,22 @@ public class DoorTrigger : MonoBehaviour
     [Header("Fade Settings")]
     public CanvasGroup fadeCanvas;
     public float fadeDuration = 0.5f;
+    private bool transitionEnabled = true;
+    private bool playerInside = false;
+    private float cooldownTime = 1f;
+
+    void Start()
+    {
+        StartCoroutine(EnableTriggerAfterDelay());
+    }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
+        playerInside = true;
+
+        if (!transitionEnabled) return;
 
         if (SceneTransferManager.Instance.IsReturningFromGuild)
         {
@@ -30,6 +42,15 @@ public class DoorTrigger : MonoBehaviour
 
         StartCoroutine(TransitionToScene(other.gameObject));
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInside = false;
+        }
+    }
+
 
     IEnumerator TransitionToScene(GameObject player)
     {
@@ -83,4 +104,17 @@ public class DoorTrigger : MonoBehaviour
         }
         fadeCanvas.alpha = targetAlpha;
     }
+
+    IEnumerator EnableTriggerAfterDelay()
+    {
+        transitionEnabled = false;
+        yield return new WaitForSeconds(cooldownTime);
+
+        // If the player is still inside, wait until they exit
+        while (playerInside)
+            yield return null;
+
+        transitionEnabled = true;
+    }
+
 }
