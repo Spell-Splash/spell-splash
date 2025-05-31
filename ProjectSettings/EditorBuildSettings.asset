@@ -12,9 +12,21 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 32de3d0090c4e4a9c923aaf1a9d984cb
   - enabled: 1
-    path: Assets/Scenes/MapScene.unity
+    path: Assets/Scenes/Map.unity
     guid: faeea8fdd9e7a41f3a79b2db18b2076e
   - enabled: 1
     path: Assets/Scenes/Setting.unity
     guid: 41fe17673d1a04a78a7c9e356d07754d
+  - enabled: 1
+    path: Assets/Scenes/Guild.unity
+    guid: 101b4a0bba3114b5bb583a4b0e4d399a
+  - enabled: 1
+    path: Assets/Scenes/BattleScene.unity
+    guid: 8dba5a35451b04d48aa3f83baebd445b
+  - enabled: 1
+    path: Assets/Scenes/BattleSummaryScene.unity
+    guid: a2402de3c4bda488c9040b256f192727
+  - enabled: 1
+    path: Assets/Scenes/CursedScene.unity
+    guid: 48e1aca4281de4ac29edc20077186158
   m_configObjects: {}
