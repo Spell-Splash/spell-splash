@@ -1263,7 +1263,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -146.46004}
+  m_AnchoredPosition: {x: 0, y: -146.46005}
   m_SizeDelta: {x: 0, y: -328.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &192627953
@@ -1338,7 +1338,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 117}
+  m_AnchoredPosition: {x: 0, y: 117}
   m_SizeDelta: {x: 176.83, y: 29.2162}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &198037307
@@ -2302,7 +2302,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 355410012}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1341303482}
+        m_TargetAssemblyTypeName: WordQuizManager, Assembly-CSharp
+        m_MethodName: OnOptionClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &355410012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7052,7 +7064,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -227.54013}
+  m_AnchoredPosition: {x: 0, y: -227.5401}
   m_SizeDelta: {x: 0, y: -455.0902}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &909782198
@@ -7161,8 +7173,8 @@ Canvas:
   m_GameObject: {fileID: 919232173}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1346416162}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -8504,7 +8516,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1098315795}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1341303482}
+        m_TargetAssemblyTypeName: WordQuizManager, Assembly-CSharp
+        m_MethodName: OnOptionClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1098315795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8712,7 +8736,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -25.41, y: -191.13}
+  m_AnchoredPosition: {x: -25.410004, y: -191.12999}
   m_SizeDelta: {x: -418.34998, y: -386.5656}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1115454903
@@ -12131,6 +12155,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1341303480}
   - component: {fileID: 1341303479}
+  - component: {fileID: 1341303483}
+  - component: {fileID: 1341303482}
+  - component: {fileID: 1341303481}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -12151,11 +12178,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wordBuilder: {fileID: 812105451}
+  wordQuizManager: {fileID: 1341303482}
   playerHPBar: {fileID: 1237523154}
   enemyHPBar: {fileID: 1056750001}
   playerHP: 100
   enemyHP: 100
   isPlayerTurn: 1
+  ActionUsedThisTurn: 0
 --- !u!4 &1341303480
 Transform:
   m_ObjectHideFlags: 0
@@ -12171,6 +12200,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1341303481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341303478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f5d4054c07404cd9b2769b339f6b8ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleLabel: {fileID: 1046624099}
+  definitionLabel: {fileID: 1046624099}
+  optionButtons:
+  - {fileID: 1839139982}
+  - {fileID: 355410011}
+  - {fileID: 1098315794}
+  optionLabels:
+  - {fileID: 459264401}
+  - {fileID: 1233160863}
+  - {fileID: 17952240}
+--- !u!114 &1341303482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341303478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8890f963dd545748772c12c8585b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  database: {fileID: 11400000, guid: 00637c44352f042828119a7584aab139, type: 2}
+  ui: {fileID: 1341303481}
+  inventory: {fileID: 1341303483}
+--- !u!114 &1341303483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341303478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8ea72668a1294253a10f392de344a0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  itemIcons:
+  - {fileID: 21300000, guid: fc1fec03a4cdf49399a18e88dde0f552, type: 3}
+  - {fileID: 21300000, guid: 17e5394f48b9b46e4a3aa87cf47ee404, type: 3}
 --- !u!1 &1346416160
 GameObject:
   m_ObjectHideFlags: 0
@@ -13061,7 +13149,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 117}
+  m_AnchoredPosition: {x: 0, y: 117}
   m_SizeDelta: {x: 176.83, y: 29.2162}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1424823434
@@ -16840,7 +16928,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1839139983}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1341303482}
+        m_TargetAssemblyTypeName: WordQuizManager, Assembly-CSharp
+        m_MethodName: OnOptionClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1839139983
 MonoBehaviour:
   m_ObjectHideFlags: 0

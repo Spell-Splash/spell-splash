@@ -14,7 +14,9 @@ public class WaveData
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
+
     public WordBuilder wordBuilder;
+    public WordQuizManager wordQuizManager;
 
 
     public HealthBarController playerHPBar;
@@ -24,6 +26,7 @@ public class LevelManager : MonoBehaviour
     public int enemyHP = 100;
 
     public bool isPlayerTurn = true;
+    public bool ActionUsedThisTurn = false;
     private bool isBattleOver = false;
 
     void Awake()
@@ -46,6 +49,8 @@ public class LevelManager : MonoBehaviour
         isPlayerTurn = true;
         isBattleOver = false;
         // TODO: Load wave-specific HP/stats
+
+        wordQuizManager.GenerateQuestion();
     }
 
     public void EndTurn()
@@ -54,9 +59,12 @@ public class LevelManager : MonoBehaviour
 
         isPlayerTurn = !isPlayerTurn;
 
+        Debug.Log($"Turn changed to: {(isPlayerTurn ? "Player" : "Enemy")}");
+
         if (!isPlayerTurn)
         {
             Invoke(nameof(EnemyTurn), 1f); // Delay for enemy "thinking"
+            wordQuizManager.GenerateQuestion();
         }
     }
 
@@ -78,7 +86,7 @@ public class LevelManager : MonoBehaviour
 
     void DirectHit()
     {
-        int damage = Random.Range(10, 15);
+        int damage = Random.Range(1, 10);
         playerHP -= damage;
         Debug.Log("Enemy hits you for " + damage);
 
