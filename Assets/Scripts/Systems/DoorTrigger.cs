@@ -72,20 +72,6 @@ public class DoorTrigger : MonoBehaviour
         if (spawn)
             player.transform.position = spawn.transform.position;
 
-        // Handle camera restoration
-        CameraFollow camFollow = Camera.main.GetComponent<CameraFollow>();
-        if (camFollow != null)
-        {
-            camFollow.SetFollowEnabled(false); // Disable temporarily
-            camFollow.ForcePosition(SceneTransferManager.Instance.returnCameraPosition);
-        }
-
-        // Delay enabling follow to next frame
-        yield return null;
-
-        if (camFollow != null)
-            camFollow.SetFollowEnabled(true);
-
         // Fade in
         if (fadeCanvas) yield return StartCoroutine(Fade(0));
 
